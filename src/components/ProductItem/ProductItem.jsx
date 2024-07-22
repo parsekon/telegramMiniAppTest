@@ -17,7 +17,6 @@ const ProductItem = ({product, className, onAdd}) => {
                 <span>Cost: <b>{product.price}</b></span>
             </div>
             <Button className={'add-btn'} onClick={onAddHandler}>Add in cart</Button>
-
         </div>
     )
 }
