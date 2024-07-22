@@ -56,7 +56,7 @@ const ProductList = () => {
                     className={'item'}
                 />
             })} */}
-            {products[0].description}
+            {products[0].price}
         </div>
     );
 }
