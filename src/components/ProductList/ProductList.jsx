@@ -40,7 +40,7 @@ const ProductList = () => {
         if(newItems.length === 0) {
             tg.MainButton.hide();
         } else {
-            tg.MainButton.show();
+            tg.MainButton.MainButton.show();
             tg.setParams({
                 text: `Buy ${getTotalPrice(newItems)}` 
             })
