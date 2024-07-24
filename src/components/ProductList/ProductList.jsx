@@ -38,6 +38,9 @@ const ProductList = () => {
             },
             body: JSON.stringify(data)
         })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Произошла ошибка:', error));
     }, [addedItems])
 
     useEffect(() => {
@@ -57,7 +60,7 @@ const ProductList = () => {
             newItems = [...addedItems, product];
         }
 
-        setAddedItems(newItems)
+        setAddedItems(newItems);
 
         if(newItems.length === 0) {
             tg.MainButton.hide();
