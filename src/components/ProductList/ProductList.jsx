@@ -31,7 +31,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId, 
         }
-        fetch(process.env.URL, {
+        fetch('http://37.1.199.186:8000/web-data', {
             method: 'POST',
             header: {
                 'Content-type': 'application/json',
