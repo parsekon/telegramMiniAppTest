@@ -31,25 +31,24 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        tg.sendData(JSON.stringify(data));
-        // fetch('http://37.1.199.186:8000/web-data', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .catch(error => console.error('Произошла ошибка:', error));
+        fetch('http://37.1.199.186:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Произошла ошибка:', error));
     }, [addedItems])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData); 
-      return () => {
-        tg.offEvent('mainButtonClicked', onSendData);
-      }
-    }, [onSendData]);
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
