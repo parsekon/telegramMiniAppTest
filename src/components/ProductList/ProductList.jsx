@@ -26,12 +26,14 @@ const ProductList = () => {
     const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(() => {
+
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://37.1.199.186:8000/web-data', {
+
+        fetch('http://37.1.199.186:8080/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
